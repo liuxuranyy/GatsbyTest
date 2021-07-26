@@ -13,7 +13,7 @@ export default function Template({
     const { mdx } = data;
     return (
       <Layout>
-        <div className="ml-60">
+        <div>
           <h1>{mdx.frontmatter.title}</h1>
           <h2>{mdx.frontmatter.date}</h2>
           <MDXRenderer>{mdx.body}</MDXRenderer>

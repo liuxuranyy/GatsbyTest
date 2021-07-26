@@ -33,7 +33,7 @@ export const SideBar = () => (
       })
       ) as MenuItem[];
       return (
-        <SideBarMenu menuItems={menuItems}/>
+          <SideBarMenu menuItems={menuItems}/>
       );
     }}
   />
@@ -41,13 +41,7 @@ export const SideBar = () => (
 );
 
 const SideBarMenu = ({ menuItems }: {menuItems: MenuItem[]}) => (
-  <Menu
-    style={{ width: 256 }}
-    defaultSelectedKeys={['1']}
-    defaultOpenKeys={['sub1']}
-    mode="inline"
-    className="overflow-hidden transition-all w-60 h-full bg-indigo-300"
-  >
+  <Menu mode="inline">
     {
       menuItems.map(item => (<Menu.Item key={item.slug}><Link to={item.slug}>
         {item.title}

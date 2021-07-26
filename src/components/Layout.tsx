@@ -2,20 +2,24 @@ import React from 'react';
 import { Header } from './Header';
 import { SideBar } from './SideBar';
 
-export const Layout = ({ children }) => {
+import { Layout as AntdLayout } from 'antd';
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const renderOtherContents = (mobileView: boolean) => (
-    <div className={`flex flex-1 items-center space-x-6 ${mobileView ? 'justify-between' : 'justify-end'}`}>
-      show something
-    </div>
-  );
+
+export const Layout = ({ children }) => {
 
   return (
     <div>
-      <Header/>
-      <SideBar/>
-      {children}
+      <Header />
+      <AntdLayout>
+        <AntdLayout.Sider className="bg-white" width={300}>
+          <SideBar />
+        </AntdLayout.Sider>
+
+        <AntdLayout.Content className="p-12">
+          {children}
+        </AntdLayout.Content>
+
+      </AntdLayout>
     </div>
   );
 };

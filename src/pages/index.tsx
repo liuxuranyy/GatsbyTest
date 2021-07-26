@@ -1,6 +1,8 @@
 import { Link } from 'gatsby';
 import * as React from 'react';
 
+import "antd/dist/antd.css";
+
 const IndexPage = () => {
   return (
     <>
