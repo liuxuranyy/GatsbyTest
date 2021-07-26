@@ -9,20 +9,22 @@ import '../styles/app.css';
 export default function Template({
   data
 }) {
-  const { mdx } = data;
-  return (
-    <Layout>
-      <div className="ml-60">
-        <h1>{mdx.frontmatter.title}</h1>
-        <h2>{mdx.frontmatter.date}</h2>
-        {/* <div
-          className="blog-post-content"
-          dangerouslySetInnerHTML={{ __html: mdx.html }}
-        /> */}
-        <MDXRenderer>{mdx.body}</MDXRenderer>
-      </div>
-    </Layout>
-  );
+  if (!!data) {
+    const { mdx } = data;
+    return (
+      <Layout>
+        <div className="ml-60">
+          <h1>{mdx.frontmatter.title}</h1>
+          <h2>{mdx.frontmatter.date}</h2>
+          <MDXRenderer>{mdx.body}</MDXRenderer>
+        </div>
+      </Layout>
+    );
+  } else {
+    return <></>
+  }
+
+
 }
 
 export const pageQuery = graphql`
